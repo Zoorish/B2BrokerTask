@@ -1,0 +1,63 @@
+<div>
+  <form [formGroup]="controlForm">
+    <div class="control-panel">
+      <div>
+        <label>Timer, ms</label>
+        <input formControlName="timer">
+        <div *ngIf="controlForm.controls.timer.invalid">
+          <span class="error">Timer field is incorrect(should be a non-negative number)</span>
+        </div>
+      </div>
+      <div>
+        <label>Array size</label>
+        <input formControlName="size">
+        <div *ngIf="controlForm.controls.size.invalid">
+          <span class="error">Size field is incorrect(should be a more then zero number)</span>
+        </div>
+      </div>
+      <div>
+        <label>Additional array ids</label>
+        <input formControlName="additionalIds">
+      </div>
+    </div>
+  </form>
+  <div class="table-container">
+    <table class="main-table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>int</th>
+          <th>float</th>
+          <th>color</th>
+          <th>child</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of resultArray; index as i;">
+          <td>{{item.id}}</td>
+          <td>{{item.int}}</td>
+          <td>{{item.float}}</td>
+          <td><div class="color" appColor>{{item.color}}</div></td>
+          <td>
+            <table class="inner-table">
+              <thead>
+                <tr>
+                  <th class="inner-header">id</th>
+                  <th class="inner-header">color</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{item.child.id}}</td>
+                  <td><div class="color" appColor>{{item.child.color}}</div></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<router-outlet />

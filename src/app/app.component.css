@@ -1,0 +1,66 @@
+.control-panel {
+  display: flex;
+  justify-content: space-evenly;
+  input {
+    margin-left: 5px;
+  }
+}
+
+.table-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  color: red;
+}
+
+.color {
+  width: fit-content;
+}
+
+.main-table {
+  width: auto;
+  flex: 1;
+  border-collapse: collapse;
+
+  tbody {
+    tr {
+      border: 2px solid black;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.inner-table {
+  min-width: 100%;
+  width: auto;
+  flex: 1;
+  border-collapse: collapse;
+  border: 2px solid black;
+  tr {
+    border: none !important;
+  }
+}
+
+.inner-header {
+  width: 50%;
+}
+
+th,
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 5px;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  text-align: left;
+  font-weight: normal;
+  font-size: 1.1rem;
+}
